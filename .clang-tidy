@@ -1,0 +1,53 @@
+Checks: >
+  -*,
+  bugprone-*,               # Enable checks for common bugs and problematic constructs.
+  clang-analyzer-*,         # Enable the Clang static analyzer.
+  cppcoreguidelines-*,      # Enable checks from the CppCoreGuidelines.
+  modernize-*,              # Enable checks for modern C++ practices.
+  performance-*,            # Enable checks for performance improvements.
+  readability-*,            # Enable checks for improving code readability.
+  misc-*                    # Miscellaneous checks.
+  hicpp-*                   # High-Integrity C++ checks.
+WarningsAsErrors: >         # Treat all warnings as errors.
+  *,
+HeaderFilterRegex: '.*'     # Check all headers.
+AnalyzeTemporaryDtors: true # Enable analysis of temporary destructors.
+FormatStyle: file           # Use .clang-format file for formatting.
+User: >                     # Add user-specific configurations if needed.
+  # Enable specific checks for certain use cases:
+  bugprone-suspicious-missing-comma,
+  cppcoreguidelines-avoid-magic-numbers,
+  cppcoreguidelines-pro-bounds-pointer-arithmetic,
+  modernize-use-nullptr,
+  modernize-use-auto,
+  modernize-use-override,
+  performance-for-range-copy,
+  readability-else-after-return,
+  readability-function-cognitive-complexity,
+  readability-identifier-naming
+
+# Specific options for individual checks.
+CheckOptions:
+  - key:             readability-identifier-naming.ClassCase
+    value:           CamelCase
+  - key:             readability-identifier-naming.FunctionCase
+    value:           camelBack
+  - key:             readability-identifier-naming.VariableCase
+    value:           lower_case
+  - key:             readability-identifier-naming.ConstantCase
+    value:           UPPER_CASE
+  - key:             readability-identifier-naming.MemberCase
+    value:           mCamelCase
+  - key:             readability-identifier-naming.ParameterCase
+    value:           lower_case
+  - key:             readability-identifier-naming.NamespaceCase
+    value:           CamelCase
+  - key:             readability-identifier-naming.MacroDefinitionCase
+    value:           UPPER_CASE
+
+# Suppress certain checks for specific code if needed.
+SuppressedChecks:
+  - key:             cppcoreguidelines-pro-bounds-pointer-arithmetic
+    value:           true # Suppress this check for projects requiring pointer arithmetic.
+  - key:             hicpp-no-assembler
+    value:           true # Suppress this check if assembly code is used.
