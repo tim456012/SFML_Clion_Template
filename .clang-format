@@ -1,98 +1,63 @@
-# .clang-format configuration for CppCoreGuidelines
+# .clang-format file adjusted for CLion compatibility and Unreal Engine coding standard
 
-# Use the latest style based on the Clang-Format version.
+---
 BasedOnStyle: LLVM
 IndentWidth: 4
 TabWidth: 4
-UseTab: Never
-BreakBeforeBraces: Allman
-AllowShortFunctionsOnASingleLine: Empty
-ColumnLimit: 100
+UseTab: ForIndentation
+
+# Indent case labels within switch statements
 IndentCaseLabels: true
-SpaceAfterCStyleCast: true
-SpacesInParentheses: false
-SpaceBeforeParens: ControlStatements
-SpaceAfterTemplateKeyword: true
-AlwaysBreakTemplateDeclarations: Yes
-Standard: c++17
 
-# Pointer and Reference alignment
-PointerAlignment: Left
-DerivePointerAlignment: false
-
-# Include sorting and alignment
-IncludeBlocks: Preserve
-IncludeIsMainRegex: '([-_](test|unittest))?$'
-IncludeCategories:
-  - Regex: '.*'
-    Priority: 1
-
-# Namespace indentation
+# Indent code within namespaces (Adjusted for CLion compatibility)
 NamespaceIndentation: All
 
-# Align the backslashes in macro definitions
-AlignEscapedNewlines: Right
+# Control the placement of braces
+BreakBeforeBraces: Custom
+BraceWrapping:
+  AfterClass: true
+  AfterStruct: true
+  AfterEnum: true
+  AfterFunction: true
+  AfterNamespace: true
+  AfterControlStatement: false
+  SplitEmptyFunction: false
+  SplitEmptyRecord: false
+  SplitEmptyNamespace: false
 
-# Align consecutive assignments
-AlignConsecutiveAssignments: true
+# Limit the maximum line length
+ColumnLimit: 120
 
-# Align consecutive declarations
-AlignConsecutiveDeclarations: true
-
-AlignArrayOfStructures: Right
-BinPackArguments: false
-BinPackParameters: false
-
-# Ensure readability with function definitions and calls
-AlwaysBreakAfterDefinitionReturnType: All
-AlwaysBreakBeforeMultilineStrings: true
-
-# Break long strings and statements to improve readability
-BreakStringLiterals: true
-
-# Control the wrapping of function definitions
-PenaltyReturnTypeOnItsOwnLine: 100
-
-# Other stylistic choices based on CppCoreGuidelines
-SpacesInAngles: false
-SpacesInCStyleCastParentheses: false
-SpaceAfterLogicalNot: true
+# Control spaces around parentheses and keywords
+SpaceBeforeParens: ControlStatements
+# Removed 'SpaceAfterControlStatementKeyword' for CLion compatibility
+SpacesInParentheses: false
+SpacesInSquareBrackets: false
 SpaceBeforeAssignmentOperators: true
-SpaceBeforeCpp11BracedList: true
 
-# Additional settings to encourage readability and maintainability
-AllowAllParametersOfDeclarationOnNextLine: true
-AllowShortEnumsOnASingleLine: false
+# Pointer and reference alignment
+PointerAlignment: Left
+
+# Disable alignment of consecutive declarations and assignments
+AlignConsecutiveDeclarations: false
+AlignConsecutiveAssignments: false
+
+# Do not pack function parameters or arguments onto a single line
+BinPackParameters: false
+BinPackArguments: false
+
+# Control the wrapping of function declarations and definitions
+AlwaysBreakAfterReturnType: None
+AlwaysBreakAfterDefinitionReturnType: None
+AllowAllParametersOfDeclarationOnNextLine: false
+
+# Disable aligning after open brackets
+AlignAfterOpenBracket: DontAlign
+
+# Other formatting options
+AllowShortFunctionsOnASingleLine: Empty
+AllowShortBlocksOnASingleLine: Empty
 AllowShortIfStatementsOnASingleLine: false
 AllowShortLoopsOnASingleLine: false
-BreakBeforeBinaryOperators: NonAssignment
-BreakBeforeTernaryOperators: true
-BreakConstructorInitializers: AfterColon
-PenaltyBreakComment: 50
-PenaltyBreakFirstLessLess: 1000
-PenaltyBreakBeforeFirstCallParameter: 19
-PenaltyBreakString: 1
-PenaltyExcessCharacter: 1000000
-
-# Enforce line breaks to ensure readability
-ReflowComments: true
-SortUsingDeclarations: true
-SpacesInSquareBrackets: false
-SpaceBeforeRangeBasedForLoopColon: true
-SpaceBeforeParensOptions:
-  AfterControlStatements: true
-  AfterFunctionDeclarationName: false
-  AfterFunctionDefinitionName: false
-  AfterIfMacros: true
-  AfterOverloadedOperator: true
-
-# Ensure consistent declaration and definition formatting
-FixNamespaceComments: true
-KeepEmptyLinesAtTheStartOfBlocks: true
-SortIncludes: CaseInsensitive
-
-# Enforce proper comment formatting
-CommentPragmas: '^ IWYU pragma:'
-
-# Specific to C++ language
-Language: Cpp
+ContinuationIndentWidth: 4
+...

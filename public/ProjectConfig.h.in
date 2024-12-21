@@ -1,0 +1,2 @@
+#define SFML_Clion_Template_VERSION_MAJOR @SFML_Clion_Template_VERSION_MAJOR@
+#define SFML_Clion_Template_VERSION_MINOR @SFML_Clion_Template_VERSION_MINOR@
